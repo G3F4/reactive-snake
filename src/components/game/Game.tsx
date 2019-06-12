@@ -13,7 +13,7 @@ const Game: React.FC<GameProps> = ({ snake, gridSize }) => (
     {Array.from({ length: gridSize })
       .map((value, index) => index)
       .map(osY => (
-        <div className="OsX">
+        <div className="OsX" key={osY}>
           {Array.from({ length: gridSize })
             .map((value, index) => index)
             .map(osX => {
@@ -21,7 +21,7 @@ const Game: React.FC<GameProps> = ({ snake, gridSize }) => (
                 .findIndex(bodyPart => bodyPart.x === osX && bodyPart.y === osY) >= 0;
 
               return (
-                <Cell snakeCell={snakeCell} />
+                <Cell snakeCell={snakeCell} key={osX} />
               );
             })
           }
