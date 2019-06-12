@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/$npm_package_name/static/css/main.d32af6b1.chunk.css",
-    "main.js": "/$npm_package_name/static/js/main.889c904d.chunk.js",
-    "main.js.map": "/$npm_package_name/static/js/main.889c904d.chunk.js.map",
-    "runtime~main.js": "/$npm_package_name/static/js/runtime~main.0eadd600.js",
-    "runtime~main.js.map": "/$npm_package_name/static/js/runtime~main.0eadd600.js.map",
-    "static/js/2.a01e2e1e.chunk.js": "/$npm_package_name/static/js/2.a01e2e1e.chunk.js",
-    "static/js/2.a01e2e1e.chunk.js.map": "/$npm_package_name/static/js/2.a01e2e1e.chunk.js.map",
-    "index.html": "/$npm_package_name/index.html",
-    "precache-manifest.1ebd471ea658efb1854aee55d28f1e52.js": "/$npm_package_name/precache-manifest.1ebd471ea658efb1854aee55d28f1e52.js",
-    "service-worker.js": "/$npm_package_name/service-worker.js",
-    "static/css/main.d32af6b1.chunk.css.map": "/$npm_package_name/static/css/main.d32af6b1.chunk.css.map"
+    "main.css": "/reactive-snake/static/css/main.d32af6b1.chunk.css",
+    "main.js": "/reactive-snake/static/js/main.b3b96e8c.chunk.js",
+    "main.js.map": "/reactive-snake/static/js/main.b3b96e8c.chunk.js.map",
+    "runtime~main.js": "/reactive-snake/static/js/runtime~main.7ecd7681.js",
+    "runtime~main.js.map": "/reactive-snake/static/js/runtime~main.7ecd7681.js.map",
+    "static/js/2.a01e2e1e.chunk.js": "/reactive-snake/static/js/2.a01e2e1e.chunk.js",
+    "static/js/2.a01e2e1e.chunk.js.map": "/reactive-snake/static/js/2.a01e2e1e.chunk.js.map",
+    "index.html": "/reactive-snake/index.html",
+    "precache-manifest.69d442f18610ae991389382247e21574.js": "/reactive-snake/precache-manifest.69d442f18610ae991389382247e21574.js",
+    "service-worker.js": "/reactive-snake/service-worker.js",
+    "static/css/main.d32af6b1.chunk.css.map": "/reactive-snake/static/css/main.d32af6b1.chunk.css.map"
   }
 }
