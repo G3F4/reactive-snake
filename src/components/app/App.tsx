@@ -11,7 +11,7 @@ const App: React.FC = () => {
     new Snake(
       [
         new Point(GRID_SIZE / 2, GRID_SIZE / 2),
-        new Point(GRID_SIZE / 2, GRID_SIZE / 2 + 1)
+        new Point(GRID_SIZE / 2, GRID_SIZE / 2 + 1),
       ],
     ),
   );

@@ -1,6 +1,6 @@
 {
   "name": "reactive-snake",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "homepage": "http://g3f4.github.io/reactive-snake",
   "dependencies": {
