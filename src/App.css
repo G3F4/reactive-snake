@@ -17,3 +17,10 @@
   height: 8px;
 }
 
+.SnakePart {
+  border: solid 1px #000000;
+  background-color: black;
+  width: 8px;
+  height: 8px;
+}
+
