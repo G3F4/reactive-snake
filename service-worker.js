@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/reactive-snake/precache-manifest.69d442f18610ae991389382247e21574.js"
+  "/reactive-snake/precache-manifest.a42f48a83ca4f2709e0a84d818ac66c0.js"
 );
 
 self.addEventListener('message', (event) => {
