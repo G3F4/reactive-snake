@@ -81,10 +81,10 @@ export default () => {
   }, []);
 
   return {
+    snake,
+    fruit,
     gameState,
     setGameState,
     handleResetGame,
-    snake,
-    fruit,
   }
 }
