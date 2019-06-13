@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/reactive-snake/static/css/main.a5cf3a95.chunk.css",
-    "main.js": "/reactive-snake/static/js/main.e0120f65.chunk.js",
-    "main.js.map": "/reactive-snake/static/js/main.e0120f65.chunk.js.map",
+    "main.css": "/reactive-snake/static/css/main.ad60d84f.chunk.css",
+    "main.js": "/reactive-snake/static/js/main.ff42d924.chunk.js",
+    "main.js.map": "/reactive-snake/static/js/main.ff42d924.chunk.js.map",
     "runtime~main.js": "/reactive-snake/static/js/runtime~main.7ecd7681.js",
     "runtime~main.js.map": "/reactive-snake/static/js/runtime~main.7ecd7681.js.map",
-    "static/js/2.63bd15c1.chunk.js": "/reactive-snake/static/js/2.63bd15c1.chunk.js",
-    "static/js/2.63bd15c1.chunk.js.map": "/reactive-snake/static/js/2.63bd15c1.chunk.js.map",
+    "static/js/2.8c18d253.chunk.js": "/reactive-snake/static/js/2.8c18d253.chunk.js",
+    "static/js/2.8c18d253.chunk.js.map": "/reactive-snake/static/js/2.8c18d253.chunk.js.map",
     "index.html": "/reactive-snake/index.html",
-    "precache-manifest.027c0e98b9feb69a8affb56e5ac4f35b.js": "/reactive-snake/precache-manifest.027c0e98b9feb69a8affb56e5ac4f35b.js",
+    "precache-manifest.80c7a1bdc791355adada9dd223a372f8.js": "/reactive-snake/precache-manifest.80c7a1bdc791355adada9dd223a372f8.js",
     "service-worker.js": "/reactive-snake/service-worker.js",
-    "static/css/main.a5cf3a95.chunk.css.map": "/reactive-snake/static/css/main.a5cf3a95.chunk.css.map"
+    "static/css/main.ad60d84f.chunk.css.map": "/reactive-snake/static/css/main.ad60d84f.chunk.css.map"
   }
 }
