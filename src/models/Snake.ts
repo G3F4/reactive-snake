@@ -7,6 +7,51 @@ export class Snake {
     readonly direction: DIRECTION = DIRECTION.RIGHT,
   ) {}
 
+  getHead(): Point {
+    return this.body[0];
+  }
+
+  feedSnake(): Snake {
+    const tail = this.body[this.body.length - 1];
+
+    switch (this.direction) {
+      case DIRECTION.TOP:
+        return new Snake(
+          [
+            ...this.body,
+            new Point(tail.x, tail.y - 1),
+          ],
+          this.direction
+        );
+      case DIRECTION.BOTTOM:
+        return new Snake(
+          [
+            ...this.body,
+            new Point(tail.x, tail.y + 1),
+          ],
+          this.direction
+        );
+      case DIRECTION.LEFT:
+        return new Snake(
+          [
+            ...this.body,
+            new Point(tail.x + 1, tail.y),
+          ],
+          this.direction
+        );
+      case DIRECTION.RIGHT:
+        return new Snake(
+          [
+            ...this.body,
+            new Point(tail.x - 1, tail.y - 1),
+          ],
+          this.direction
+        );
+    }
+
+    return this;
+  }
+
   public move(): Snake {
     switch (this.direction) {
       case DIRECTION.TOP:

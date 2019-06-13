@@ -1,15 +1,16 @@
 import React, { KeyboardEvent, useEffect, useState } from 'react';
-import { GRID_SIZE, TICK } from '../../constans';
+import { GRID_SIZE, INITIAL_SPEED } from '../../constans';
 import { DIRECTION } from '../../enums';
 import { Point } from '../../models/Point';
 import { Snake } from '../../models/Snake';
 import Game from '../game/Game';
 import './App.css';
 
+let moveInterval = setInterval(() => {}, 1000000);
+
 const App: React.FC = () => {
-  const [fruit, setFruit] = useState(
-    new Point(Math.floor(Math.random() * GRID_SIZE), Math.floor(Math.random() * GRID_SIZE)),
-  );
+  const [speed, setSpeed] = useState(INITIAL_SPEED);
+  const [fruit, setFruit] = useState(Point.random(GRID_SIZE));
   const [snake, setSnake] = useState(
     new Snake(
       [
@@ -47,14 +48,21 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    setInterval(() => {
+    clearInterval(moveInterval);
+    moveInterval = setInterval(() => {
       setSnake(snake => snake.move());
-    }, TICK);
-  }, []);
+    }, speed);
+  }, [speed]);
 
   useEffect(() => {
-    console.log(['snake changed'])
-  }, [snake]);
+    const fruitEaten = snake.getHead().equals(fruit);
+
+    if (fruitEaten) {
+      setSnake(snake => snake.feedSnake());
+      setFruit(Point.random(GRID_SIZE));
+      setSpeed(s => Math.ceil(s * 0.7));
+    }
+  }, [snake, fruit]);
 
   return (
     <div className="App">

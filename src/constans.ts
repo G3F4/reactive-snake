@@ -1,2 +1,2 @@
 export const GRID_SIZE = 50;
-export const TICK = 500;
+export const INITIAL_SPEED = 300;
