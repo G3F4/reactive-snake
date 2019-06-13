@@ -7,6 +7,16 @@ export class Snake {
     readonly direction: DIRECTION = DIRECTION.RIGHT,
   ) {}
 
+  public static initialSnake(gridSize: number): Snake {
+    return new Snake(
+      [
+        new Point(gridSize / 2, gridSize / 2),
+        new Point(gridSize / 2, gridSize / 2 + 1),
+      ],
+      DIRECTION.LEFT,
+    );
+  }
+
   getHead(): Point {
     return this.body[0];
   }

@@ -11,27 +11,20 @@ let moveInterval = setInterval(() => {}, 1000000);
 const App: React.FC = () => {
   const [speed, setSpeed] = useState(INITIAL_SPEED);
   const [fruit, setFruit] = useState(Point.random(GRID_SIZE));
-  const [snake, setSnake] = useState(
-    new Snake(
-      [
-        new Point(GRID_SIZE / 2, GRID_SIZE / 2),
-        new Point(GRID_SIZE / 2, GRID_SIZE / 2 + 1),
-      ],
-    ),
-  );
+  const [snake, setSnake] = useState(Snake.initialSnake(GRID_SIZE));
 
   useEffect(() => {
     const handleKeyPressed = (e: KeyboardEvent) => {
-      if (e.keyCode === 38) { // up arrow
+      if (e.keyCode === 38 || e.keyCode === 87) { // up arrow
         setSnake(snake => snake.setDirection(DIRECTION.TOP));
       }
-      else if (e.keyCode === 40) { // down arrow
+      else if (e.keyCode === 40 || e.keyCode === 83) { // down arrow
         setSnake(snake => snake.setDirection(DIRECTION.BOTTOM));
       }
-      else if (e.keyCode === 37) { // left arrow
+      else if (e.keyCode === 37 || e.keyCode === 65) { // left arrow
         setSnake(snake => snake.setDirection(DIRECTION.LEFT));
       }
-      else if (e.keyCode === 39) { // right arrow
+      else if (e.keyCode === 39 || e.keyCode === 68) { // right arrow
         setSnake(snake => snake.setDirection(DIRECTION.RIGHT));
       }
     };

@@ -28,15 +28,15 @@ const Game: React.FC<GameProps> = ({ fruit, snake, gridSize }) => (
 
               if (snakeCell) {
                 if (snakeCellIndex === 0) {
-                  return <SnakeHead />;
+                  return <SnakeHead key={osX} />;
                 }
 
-                return <SnakeBody />;
+                return <SnakeBody key={osX} />;
               }
 
               if (osX === fruit.x && osY === fruit.y) {
                 return (
-                  <Fruit />
+                  <Fruit key={osX} />
                 );
               }
 
