@@ -1,19 +1,19 @@
-import React, { KeyboardEvent, useEffect, useState } from 'react';
+import React, { KeyboardEvent, useCallback, useEffect, useState } from 'react';
 import { GRID_SIZE, INITIAL_SPEED } from '../../constans';
 import { Direction, GameState } from '../../enums';
-import { Point } from '../../models/Point';
-import { Snake } from '../../models/Snake';
+import { PointModel } from '../../models/PointModel';
+import { SnakeModel } from '../../models/SnakeModel';
 import Game from '../game/Game';
-import './App.css';
 import GameContext from '../game/GameContext';
+import './App.css';
 
 let moveInterval = setInterval(() => {}, 1000000);
 
 const App: React.FC = () => {
   const [gameState, setGameState] = useState(GameState.PLAY);
   const [speed, setSpeed] = useState(INITIAL_SPEED);
-  const [fruit, setFruit] = useState(Point.random(GRID_SIZE));
-  const [snake, setSnake] = useState(Snake.initialSnake(GRID_SIZE));
+  const [fruit, setFruit] = useState(PointModel.random(GRID_SIZE));
+  const [snake, setSnake] = useState(SnakeModel.initialSnake(GRID_SIZE));
 
   useEffect(() => {
     const handleKeyPressed = (e: KeyboardEvent) => {
@@ -54,8 +54,13 @@ const App: React.FC = () => {
         setSnake(snake => {
           const movedSnake = snake.move();
           const snakeEatenSelf = movedSnake.hasEatenSelf();
+          const snakeLeftGrid = movedSnake.hasLeftGrid(GRID_SIZE);
 
-          console.log(['snakeEatenSelf'], snakeEatenSelf)
+          if (snakeEatenSelf || snakeLeftGrid) {
+            setGameState(GameState.END);
+
+            return snake;
+          }
 
           return movedSnake;
         });
@@ -68,16 +73,22 @@ const App: React.FC = () => {
 
     if (fruitEaten) {
       setSnake(snake => snake.feedSnake());
-      setFruit(Point.random(GRID_SIZE));
+      setFruit(PointModel.random(GRID_SIZE));
       setSpeed(s => Math.ceil(s * 0.7));
     }
   }, [snake, fruit]);
+
+  const handleResetGame = useCallback(() => {
+    setGameState(GameState.PLAY);
+    setSnake(SnakeModel.initialSnake(GRID_SIZE));
+  }, []);
 
   return (
     <div className="App">
       <GameContext.Provider value={{
         state: gameState,
         onStateChange: setGameState,
+        onResetGame: handleResetGame,
       }}>
         <Game gridSize={GRID_SIZE} snake={snake} fruit={fruit} state={gameState} />
       </GameContext.Provider>

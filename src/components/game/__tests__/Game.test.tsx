@@ -1,15 +1,15 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Point } from '../../../models/Point';
-import { Snake } from '../../../models/Snake';
+import { PointModel } from '../../../models/PointModel';
+import { SnakeModel } from '../../../models/SnakeModel';
 import Game from '../Game';
 
 it('renders without crashing', () => {
   // given
   const gridSize = 10;
-  const snake = new Snake([
-    new Point(gridSize / 2, gridSize / 2),
-    new Point(gridSize / 2, gridSize / 2 + 1),
+  const snake = new SnakeModel([
+    new PointModel(gridSize / 2, gridSize / 2),
+    new PointModel(gridSize / 2, gridSize / 2 + 1),
   ]);
 
   // when

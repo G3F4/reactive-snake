@@ -1,23 +1,23 @@
 import { Direction } from '../enums';
-import { Point } from './Point';
+import { PointModel } from './PointModel';
 
-export class Snake {
+export class SnakeModel {
   constructor(
-    readonly body: Point[],
+    readonly body: PointModel[],
     readonly direction: Direction = Direction.RIGHT,
   ) {}
 
-  public static initialSnake(gridSize: number): Snake {
-    return new Snake(
+  public static initialSnake(gridSize: number): SnakeModel {
+    return new SnakeModel(
       [
-        new Point(gridSize / 2, gridSize / 2),
-        new Point(gridSize / 2, gridSize / 2 + 1),
+        new PointModel(gridSize / 2, gridSize / 2),
+        new PointModel(gridSize / 2, gridSize / 2 + 1),
       ],
       Direction.LEFT,
     );
   }
 
-  getHead(): Point {
+  getHead(): PointModel {
     return this.body[0];
   }
 
@@ -27,39 +27,45 @@ export class Snake {
     return body.findIndex(bodyPart => bodyPart.equals(head)) >= 0;
   }
 
-  feedSnake(): Snake {
+  hasLeftGrid(gridSize: number): boolean {
+    const [head] = this.body;
+
+    return head.x < 0 || head.y < 0 || head.x > gridSize - 1 || head.y > gridSize - 1;
+  }
+
+  feedSnake(): SnakeModel {
     const tail = this.body[this.body.length - 1];
 
     switch (this.direction) {
       case Direction.TOP:
-        return new Snake(
+        return new SnakeModel(
           [
             ...this.body,
-            new Point(tail.x, tail.y - 1),
+            new PointModel(tail.x, tail.y - 1),
           ],
           this.direction
         );
       case Direction.BOTTOM:
-        return new Snake(
+        return new SnakeModel(
           [
             ...this.body,
-            new Point(tail.x, tail.y + 1),
+            new PointModel(tail.x, tail.y + 1),
           ],
           this.direction
         );
       case Direction.LEFT:
-        return new Snake(
+        return new SnakeModel(
           [
             ...this.body,
-            new Point(tail.x + 1, tail.y),
+            new PointModel(tail.x + 1, tail.y),
           ],
           this.direction
         );
       case Direction.RIGHT:
-        return new Snake(
+        return new SnakeModel(
           [
             ...this.body,
-            new Point(tail.x - 1, tail.y - 1),
+            new PointModel(tail.x - 1, tail.y - 1),
           ],
           this.direction
         );
@@ -68,36 +74,36 @@ export class Snake {
     return this;
   }
 
-  public move(): Snake {
+  public move(): SnakeModel {
     switch (this.direction) {
       case Direction.TOP:
-        return new Snake(
+        return new SnakeModel(
           [
-            new Point(this.body[0].x, this.body[0].y - 1),
+            new PointModel(this.body[0].x, this.body[0].y - 1),
             ...this.body.slice(0, this.body.length - 1),
           ],
           this.direction
         );
       case Direction.BOTTOM:
-        return new Snake(
+        return new SnakeModel(
           [
-            new Point(this.body[0].x, this.body[0].y + 1),
+            new PointModel(this.body[0].x, this.body[0].y + 1),
             ...this.body.slice(0, this.body.length - 1),
           ],
           this.direction
         );
       case Direction.LEFT:
-        return new Snake(
+        return new SnakeModel(
           [
-            new Point(this.body[0].x - 1, this.body[0].y),
+            new PointModel(this.body[0].x - 1, this.body[0].y),
             ...this.body.slice(0, this.body.length - 1),
           ],
           this.direction
         );
       case Direction.RIGHT:
-        return new Snake(
+        return new SnakeModel(
           [
-            new Point(this.body[0].x + 1, this.body[0].y),
+            new PointModel(this.body[0].x + 1, this.body[0].y),
             ...this.body.slice(0, this.body.length - 1),
           ],
           this.direction
@@ -107,9 +113,9 @@ export class Snake {
     return this;
   }
 
-  public setDirection(direction: Direction): Snake {
+  public setDirection(direction: Direction): SnakeModel {
     if (this.canChangeDirection(direction)) {
-      return new Snake(
+      return new SnakeModel(
         this.body,
         direction,
       );

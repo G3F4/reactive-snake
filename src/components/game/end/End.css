@@ -1,0 +1,17 @@
+.End {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: .9;
+    background: #fff;
+}
+
+.EndResumeButton {
+    background: #f9111c;
+    font-size: x-large;
+    margin: var(--cell-size);
+    padding: var(--cell-size);
+}

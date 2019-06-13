@@ -1,9 +1,10 @@
 import React from 'react';
 import { GameState } from '../../enums';
-import { Point } from '../../models/Point';
-import { Snake } from '../../models/Snake';
+import { PointModel } from '../../models/PointModel';
+import { SnakeModel } from '../../models/SnakeModel';
 import './Game.css';
 import Cell from './cell/Cell';
+import End from './end/End';
 import Fruit from './fruit/Fruit';
 import Menu from './menu/Menu';
 import SnakeBody from './snake-body/SnakeBody';
@@ -11,8 +12,8 @@ import SnakeHead from './snake-head/SnakeHead';
 
 interface GameProps {
   gridSize: number;
-  snake: Snake;
-  fruit: Point;
+  snake: SnakeModel;
+  fruit: PointModel;
   state: GameState;
 }
 
@@ -20,6 +21,9 @@ const Game: React.FC<GameProps> = ({ fruit, snake, gridSize, state }) => (
   <div className="Game">
     {state === GameState.MENU && (
       <Menu />
+    )}
+    {state === GameState.END && (
+      <End />
     )}
     {Array.from({ length: gridSize })
       .map((value, index) => index)
