@@ -7,6 +7,9 @@ import Game from '../game/Game';
 import './App.css';
 
 const App: React.FC = () => {
+  const [fruit, setFruit] = useState(
+    new Point(Math.floor(Math.random() * GRID_SIZE), Math.floor(Math.random() * GRID_SIZE)),
+  );
   const [snake, setSnake] = useState(
     new Snake(
       [
@@ -49,9 +52,13 @@ const App: React.FC = () => {
     }, TICK);
   }, []);
 
+  useEffect(() => {
+    console.log(['snake changed'])
+  }, [snake]);
+
   return (
     <div className="App">
-      <Game gridSize={GRID_SIZE} snake={snake} />
+      <Game gridSize={GRID_SIZE} snake={snake} fruit={fruit} />
     </div>
   );
 };
