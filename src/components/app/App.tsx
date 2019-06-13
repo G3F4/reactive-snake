@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { KeyboardEvent, useEffect, useState } from 'react';
 import { GRID_SIZE, TICK } from '../../constans';
 import { DIRECTION } from '../../enums';
 import { Point } from '../../models/Point';
@@ -17,7 +17,7 @@ const App: React.FC = () => {
   );
 
   useEffect(() => {
-    const handleKeyPressed = (e: any) => {
+    const handleKeyPressed = (e: KeyboardEvent) => {
       if (e.keyCode === 38) { // up arrow
         setSnake(snake => snake.setDirection(DIRECTION.TOP));
       }
@@ -32,6 +32,7 @@ const App: React.FC = () => {
       }
     };
 
+    // @ts-ignore
     document.onkeydown = handleKeyPressed;
 
     // #todo dlaczego to nie działa?
