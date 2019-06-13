@@ -1,8 +1,13 @@
+:root {
+  --cell-size: 8px;
+}
+
 .Game {
+  position: relative;
   display: flex;
   flex-direction: column;
   border: solid 8px rgba(144, 138, 142, 0.92);
-  margin: 8px;
+  margin: var(--cell-size);
 }
 
 .OsX {

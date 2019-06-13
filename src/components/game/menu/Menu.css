@@ -1,0 +1,17 @@
+.Menu {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: .9;
+    background: #fff;
+}
+
+.MenuResumeButton {
+    background: #3cf904;
+    font-size: x-large;
+    margin: var(--cell-size);
+    padding: var(--cell-size);
+}
